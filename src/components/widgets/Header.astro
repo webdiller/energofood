@@ -17,22 +17,25 @@ const allNav = [
 ];
 ---
 
-<header class="sticky top-0 z-50 border-b border-slate-200 bg-white/95 shadow-sm backdrop-blur">
-  <div class="container py-4">
-    <div class="flex items-center justify-between gap-3 md:block">
-      <a href="/" class="block shrink-0 text-lg font-black tracking-wide text-foreground-accent md:text-xl lg:text-2xl">
+<header
+  id="floating-header"
+  class="fixed left-1/2 top-3 z-50 w-[min(1200px,calc(100%-1rem))] -translate-x-1/2 transition-opacity duration-300 ease-out"
+>
+  <div class="rounded-2xl relative border border-slate-200/90 bg-white/90 px-3 py-2 shadow-lg backdrop-blur">
+    <div class="flex items-center justify-between gap-2">
+      <a href="/" class="mr-1 shrink-0 rounded-lg px-2 py-2 text-sm font-black tracking-wide text-foreground-accent sm:px-3">
         ENERGO FOOD GROUP
       </a>
 
-      <nav aria-label="Основная навигация" class="mt-4 hidden md:block">
-        <ul class="flex flex-nowrap items-center gap-2 whitespace-nowrap">
+      <nav aria-label="Основная навигация" class="hidden min-w-0 md:block">
+        <ul class="flex items-center gap-1.5 whitespace-nowrap">
           {
             allNav.map((item) => (
               <li>
                 <a
                   href={item.href}
                   class:list={[
-                    "rounded-lg px-3 py-2 text-sm font-semibold transition-colors",
+                    "block rounded-lg px-2.5 py-2 text-xs font-semibold transition-colors sm:px-3 sm:text-sm",
                     pathname === item.href
                       ? "bg-slate-900 text-white hover:bg-slate-700"
                       : "text-slate-700 hover:bg-slate-100 hover:text-slate-900",
@@ -46,14 +49,15 @@ const allNav = [
         </ul>
       </nav>
 
-      <details class="relative md:hidden">
-        <summary class="cursor-pointer list-none rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm font-semibold text-slate-700 transition-colors hover:bg-slate-50">
-          Меню
+      <details class="md:hidden">
+        <summary class="cursor-pointer list-none rounded-lg border border-slate-200 bg-white px-3 py-2 text-lg font-semibold leading-none text-slate-700 transition-colors hover:bg-slate-50">
+          <span aria-hidden="true">☰</span>
+          <span class="sr-only">Меню</span>
         </summary>
 
         <nav
           aria-label="Мобильная навигация"
-          class="absolute right-0 top-12 z-50 w-80 max-w-[calc(100vw-1.5rem)] rounded-xl border border-slate-200 bg-white p-2 shadow-lg"
+          class="absolute right-0 top-14 z-50 w-full left-0 rounded-xl border border-slate-200 bg-white p-2 shadow-lg"
         >
           <ul class="flex flex-col gap-1">
             {
@@ -79,3 +83,38 @@ const allNav = [
     </div>
   </div>
 </header>
+
+<script>
+  const header = document.getElementById("floating-header");
+  let lastScrollY = window.scrollY;
+
+  const showHeader = () => {
+    if (!header) return;
+    header.classList.remove("opacity-0", "pointer-events-none");
+    header.classList.add("opacity-100");
+  };
+
+  const hideHeader = () => {
+    if (!header) return;
+    header.classList.remove("opacity-100");
+    header.classList.add("opacity-0", "pointer-events-none");
+  };
+
+  window.addEventListener(
+    "scroll",
+    () => {
+      const currentY = window.scrollY;
+
+      if (currentY <= 200) {
+        showHeader();
+      } else if (currentY > lastScrollY + 2) {
+        hideHeader();
+      } else if (currentY < lastScrollY - 2) {
+        showHeader();
+      }
+
+      lastScrollY = currentY;
+    },
+    { passive: true },
+  );
+</script>
