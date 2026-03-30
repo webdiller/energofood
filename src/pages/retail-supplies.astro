@@ -5,8 +5,6 @@ import imgSyrniki2 from "../assets/products/5.jpeg";
 import imgOktopus1 from "../assets/products/2.jpeg";
 import imgFish1 from "../assets/products/3.jpeg";
 import imgFish2 from "../assets/products/4.jpeg";
-import photoswipeInitUrl from "../components/widgets/retail-photoswipe.ts?url";
-
 import "photoswipe/style.css";
 
 const items = [
@@ -54,5 +52,8 @@ const items = [
     </div>
   </section>
 
-  <script type="module" src={photoswipeInitUrl}></script>
+  <script>
+    import { initPhotoSwipeGallery } from "../components/widgets/init-photoswipe";
+    initPhotoSwipeGallery("retail-gallery");
+  </script>
 </Layout>

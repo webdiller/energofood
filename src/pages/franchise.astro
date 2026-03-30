@@ -9,7 +9,6 @@ import img7 from "../assets/prezentation/7.jpeg";
 import img8 from "../assets/prezentation/8.jpeg";
 import Layout from "../layouts/Layout.astro";
 
-import photoswipeInitUrl from "../components/widgets/franchise-photoswipe.ts?url";
 import "photoswipe/dist/photoswipe.css";
 
 const images = [img1, img2, img3, img4, img5, img6, img7, img8];
@@ -50,6 +49,9 @@ const images = [img1, img2, img3, img4, img5, img6, img7, img8];
     </div>
   </div>
 
-  <script type="module" src={photoswipeInitUrl}></script>
+  <script>
+    import { initPhotoSwipeGallery } from "../components/widgets/init-photoswipe";
+    initPhotoSwipeGallery("franchise-gallery");
+  </script>
 </Layout>
 
