@@ -1,1 +1,16 @@
 @import "tailwindcss";
+
+@utility container {
+	@apply mx-auto max-w-[1440px] px-3 lg:px-4;
+}
+
+:root {
+	--foreground: oklch(22.213% 0.00003 271.152);
+	--foreground-accent: oklch(0% 0 0);
+}
+
+
+@theme inline {
+	--color-foreground: var(--foreground);
+	--color-foreground-accent: var(--foreground);
+}
