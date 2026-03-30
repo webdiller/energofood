@@ -1,26 +1,18 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import imgSyrniki from "../assets/products/1.jpeg";
+import imgSyrniki1 from "../assets/products/1.jpeg";
+import imgSyrniki2 from "../assets/products/5.jpeg";
+import imgOktopus1 from "../assets/products/2.jpeg";
+import imgFish1 from "../assets/products/3.jpeg";
+import imgFish2 from "../assets/products/4.jpeg";
 import photoswipeInitUrl from "../components/widgets/retail-photoswipe.ts?url";
 
 import "photoswipe/style.css";
 
-const placeholder = (label: string) => {
-  const svg = `
-    <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800">
-      <rect x="0" y="0" width="1200" height="800" fill="#F1F5F9" stroke="#CBD5E1" stroke-width="4"/>
-      <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle"
-        font-family="Arial, sans-serif" font-size="64" fill="#64748B">${label}</text>
-    </svg>
-  `.trim();
-
-  return `data:image/svg+xml;charset=utf-8,${encodeURIComponent(svg)}`;
-};
-
 const items = [
-  { title: "сырники", img: imgSyrniki },
-  { title: "рыба в упаковке", img: null },
-  { title: "осьминог в упаковке", img: null },
+  { title: "сырники", images: [imgSyrniki1, imgSyrniki2] },
+  { title: "осьминог в упаковке", images: [imgOktopus1] },
+  { title: "рыба в упаковке", images: [imgFish1, imgFish2] },
 ];
 ---
 
@@ -34,25 +26,27 @@ const items = [
       <div id="retail-gallery" class="mt-8 space-y-8" aria-label="Галерея поставок в ритейл">
         {items.map((item) => (
           <article class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-            <h2 class="text-2xl font-extrabold tracking-tight text-slate-900">{item.title}</h2>
+            <h2 class="text-2xl first-letter:uppercase font-semibold tracking-tight text-slate-900">{item.title}</h2>
 
-            <div class="mt-4 overflow-hidden rounded-xl border border-slate-100 bg-slate-50">
-              <a
-                href={item.img ? item.img.src : placeholder(item.title)}
-                data-pswp-width={item.img?.width ?? 1200}
-                data-pswp-height={item.img?.height ?? 800}
-                class="block"
-                aria-label={`Открыть изображение: ${item.title}`}
-              >
-                <img
-                  src={item.img ? item.img.src : placeholder(item.title)}
-                  alt={`Изображение: ${item.title}`}
-                  width={item.img?.width ?? 1200}
-                  height={item.img?.height ?? 800}
-                  class="block h-auto w-full object-cover"
-                  loading="lazy"
-                />
-              </a>
+            <div class="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2">
+              {item.images.map((image, idx) => (
+                <a
+                  href={image.src}
+                  data-pswp-width={image.width}
+                  data-pswp-height={image.height}
+                  class="overflow-hidden rounded-xl border border-slate-100 bg-slate-50"
+                  aria-label={`Открыть изображение: ${item.title} ${idx + 1}`}
+                >
+                  <img
+                    src={image.src}
+                    alt={`Изображение: ${item.title} ${idx + 1}`}
+                    width={image.width}
+                    height={image.height}
+                    class="block aspect-square object-center object-cover"
+                    loading="lazy"
+                  />
+                </a>
+              ))}
             </div>
           </article>
         ))}
