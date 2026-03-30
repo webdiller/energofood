@@ -1,17 +1,37 @@
 ---
 import welcomeImage from "../../assets/img-welcome.png";
+import imageProjects from "../../assets/img-projects.jpg";
 ---
 
-<section class="container py-8 md:py-12">
-  <div class="overflow-hidden rounded-2xl bg-white">
-    <img
-      src={welcomeImage.src}
-      width={welcomeImage.width}
-      height={welcomeImage.height}
-      alt="Energo Food Group of companies"
-      loading="eager"
-      class="mx-auto block h-auto w-full max-w-5xl object-contain"
-    />
-    <p>Наша компания занимается производством продуктов питания, оптовой и розничной торговлей, экспортом, импортом и управлением бизнеса в сфере общественного питания.</p>
+<div class="container py-6 sm:py-8 md:py-12">
+  <!-- 1 -->
+  <div class="overflow-hidden rounded-xl bg-white sm:rounded-2xl">
+    <img src={welcomeImage.src} width={welcomeImage.width} height={welcomeImage.height} alt="Energo Food Group of companies" loading="eager" class="mx-auto block h-auto w-full object-contain" />
+    <!-- <p class="mx-auto max-w-4xl px-3 pb-4 pt-3 text-center text-sm leading-relaxed text-slate-700 sm:px-6 sm:pb-6 sm:pt-4 sm:text-base md:px-10 md:text-lg">
+      Наша компания занимается производством продуктов питания, оптовой и розничной
+      торговлей, экспортом, импортом и управлением бизнеса в сфере общественного
+      питания.
+    </p> -->
+    <div class="text-3xl font-light">
+      <div class="text-center w-full max-w-4xl m-auto">
+        <div>Наша компания занимается производством продуктов питания, оптовой и розничной торговлей, экспортом, импортом и управлением бизнеса в сфере общественного питания.</div>
+      </div>
+    </div>
   </div>
-</section>
+</div>
+
+<div>
+  <!-- 2 -->
+  <div class="py-10 flex items-center justify-center relative bg-black h-[80vh] min-h-[400px]">
+    <img class="absolute inset-0 w-full h-full object-cover" src={imageProjects.src} width={imageProjects.width} height={imageProjects.height} alt="" />
+    <div class="absolute inset-0 w-full h-full bg-black/70"></div>
+    <div class="text-white relative text-7xl font-semibold pb-10 pt-6 text-center" id="div-1">НАШИ ПРОЕКТЫ</div>
+    <svg role="presentation" class="absolute bottom-5 left-1/2 z-10 -translate-x-1/2" style="fill:#ffffff;" x="0px" y="0px" width="38.417px" height="18.592px" viewBox="0 0 38.417 18.592"
+      ><g
+        ><path
+          d="M19.208,18.592c-0.241,0-0.483-0.087-0.673-0.261L0.327,1.74c-0.408-0.372-0.438-1.004-0.066-1.413c0.372-0.409,1.004-0.439,1.413-0.066L19.208,16.24L36.743,0.261c0.411-0.372,1.042-0.342,1.413,0.066c0.372,0.408,0.343,1.041-0.065,1.413L19.881,18.332C19.691,18.505,19.449,18.592,19.208,18.592z"
+        ></path></g
+      ></svg
+    >
+  </div>
+</div>
