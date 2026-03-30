@@ -1,0 +1,55 @@
+---
+import img1 from "../assets/prezentation/1.jpeg";
+import img2 from "../assets/prezentation/2.jpeg";
+import img3 from "../assets/prezentation/3.jpeg";
+import img4 from "../assets/prezentation/4.jpeg";
+import img5 from "../assets/prezentation/5.jpeg";
+import img6 from "../assets/prezentation/6.jpeg";
+import img7 from "../assets/prezentation/7.jpeg";
+import img8 from "../assets/prezentation/8.jpeg";
+import Layout from "../layouts/Layout.astro";
+
+import photoswipeInitUrl from "../components/widgets/franchise-photoswipe.ts?url";
+import "photoswipe/dist/photoswipe.css";
+
+const images = [img1, img2, img3, img4, img5, img6, img7, img8];
+---
+
+<Layout>
+  <div class="container py-10 sm:py-12">
+    <div class="max-w-4xl">
+      <h1 class="text-3xl font-extrabold tracking-tight text-slate-900">Франшиза Energo Street Food</h1>
+      <p class="mt-3 text-sm leading-6 text-slate-600">
+        Презентационные материалы для знакомства с концепцией и форматами.
+      </p>
+    </div>
+
+    <div
+      id="franchise-gallery"
+      class="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-2"
+      aria-label="Галерея презентации"
+    >
+      {images.map((img, idx) => (
+        <a
+          href={img.src}
+          data-pswp-width={img.width}
+          data-pswp-height={img.height}
+          class="group relative overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm"
+          aria-label={`Открыть изображение ${idx + 1}`}
+        >
+          <img
+            src={img.src}
+            width={img.width}
+            height={img.height}
+            alt={`Презентация ${idx + 1}`}
+            loading="lazy"
+            class="aspect-3/4 w-full object-cover transition-transform duration-300 group-hover:scale-105"
+          />
+        </a>
+      ))}
+    </div>
+  </div>
+
+  <script type="module" src={photoswipeInitUrl}></script>
+</Layout>
+
