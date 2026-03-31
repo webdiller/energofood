@@ -1,8 +1,6 @@
 ---
 import logoImg from "../../assets/img-logo.png";
 
-const pathname = Astro.url.pathname.replace(/\/+$/, "") || "/";
-
 const primaryNav = [
   { label: "Главная", href: "/" },
 ];
@@ -24,7 +22,7 @@ const allNav = [
   class="fixed left-1/2 top-3 z-50 w-[min(1200px,calc(100%-1rem))] -translate-x-1/2 transition-opacity duration-300 ease-out"
 >
   <div class="rounded-full relative bg-white px-3 py-2">
-    <div class="flex items-center gap-2 sm:gap-3">
+    <div class="flex flex-col items-center gap-1 sm:flex-row sm:items-center sm:gap-3">
       <a
         href="/"
         class="shrink-0 rounded-lg outline-offset-2 focus-visible:outline-2 focus-visible:outline-slate-900 sm:px-3"
@@ -40,13 +38,13 @@ const allNav = [
         />
       </a>
 
-      <nav aria-label="Основная навигация" class="min-w-0 flex-1">
+      <nav aria-label="Основная навигация" class="min-w-0 w-full sm:flex-1">
         <ul
-          class="flex flex-wrap items-center justify-end gap-x-1 gap-y-1 sm:gap-x-1.5 sm:whitespace-nowrap"
+          class="flex flex-wrap items-center justify-center gap-x-1 gap-y-1 sm:justify-end sm:gap-x-1.5 sm:whitespace-nowrap"
         >
           {
             allNav.map((item) => (
-              <li>
+              <li class:list={[item.primary && "hidden sm:block"]}>
                 <a
                   href={item.href}
                   class="text-foreground uppercase hover:bg-slate-100 block rounded-lg px-2 py-1.5 text-[11px] font-semibold leading-tight transition-colors sm:px-2.5 sm:py-2 md:text-base"
