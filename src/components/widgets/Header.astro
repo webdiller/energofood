@@ -1,4 +1,6 @@
 ---
+import logoImg from "../../assets/img-logo.png";
+
 const pathname = Astro.url.pathname.replace(/\/+$/, "") || "/";
 
 const primaryNav = [
@@ -23,8 +25,19 @@ const allNav = [
 >
   <div class="rounded-2xl relative border border-slate-200/90 bg-white/90 px-3 py-2 shadow-lg backdrop-blur">
     <div class="flex items-center justify-between gap-2">
-      <a href="/" class="mr-1 shrink-0 rounded-lg px-2 py-2 text-sm font-black tracking-wide text-foreground-accent sm:px-3">
-        ENERGO FOOD GROUP
+      <a
+        href="/"
+        class="mr-1 shrink-0 rounded-lg px-2 py-2 outline-offset-2 focus-visible:outline-2 focus-visible:outline-slate-900 sm:px-3"
+      >
+        <img
+          src={logoImg.src}
+          width={logoImg.width}
+          height={logoImg.height}
+          alt="Energo Food — Group of Companies"
+          class="h-8 w-auto sm:h-9"
+          loading="eager"
+          decoding="async"
+        />
       </a>
 
       <nav aria-label="Основная навигация" class="hidden min-w-0 md:block">

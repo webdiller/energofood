@@ -11,6 +11,9 @@
 
 
 @theme inline {
+	--font-sans:
+		"Roboto", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji",
+		"Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 	--color-foreground: var(--foreground);
 	--color-foreground-accent: var(--foreground);
 }
