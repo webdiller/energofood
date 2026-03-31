@@ -1,5 +1,7 @@
 ---
 import welcomeImage from "../../assets/img-welcome.png";
+import imgProject1 from "../../assets/img-eto-syrnik-circle.png";
+import imgProject2 from "../../assets/img-energo-street-food-circle.png";
 ---
 
 <div class="container max-w-none py-6 sm:py-8 md:py-12 lg:pb-20">
@@ -12,3 +14,21 @@ import welcomeImage from "../../assets/img-welcome.png";
     </div>
   </div>
 </div>
+
+<section class="container py-8 sm:py-10 md:py-12">
+  <div class="mx-auto grid max-w-4xl grid-cols-1 gap-5 sm:gap-6 md:grid-cols-2">
+    <article class="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm">
+      <img src={imgProject1.src} width={imgProject1.width} height={imgProject1.height} alt="Energo Food" class="aspect-square w-full rounded-xl object-cover" loading="lazy" />
+      <h3 class="mt-3 text-xl font-extrabold text-slate-900">ENERGO FOOD</h3>
+      <p class="mt-1 min-h-12 text-sm leading-6 text-slate-600">Производство продуктов питания для ритейла в Королевстве Таиланд</p>
+      <a href="#" class="mt-3 inline-flex rounded-full bg-black px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-slate-800"> Больше о проекте </a>
+    </article>
+
+    <article class="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm">
+      <img src={imgProject2.src} width={imgProject2.width} height={imgProject2.height} alt="Energo Progress" class="aspect-square w-full rounded-xl object-cover" loading="lazy" />
+      <h3 class="mt-3 text-xl font-extrabold text-slate-900">Energo Progress</h3>
+      <p class="mt-1 min-h-12 text-sm leading-6 text-slate-600">Дистрибьюция и реклама. <br> @energo_progress_thai</p>
+      <a href="#" class="mt-3 inline-flex rounded-full bg-black px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-slate-800"> Больше о проекте </a>
+    </article>
+  </div>
+</section>
