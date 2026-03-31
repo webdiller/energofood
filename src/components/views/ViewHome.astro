@@ -1,7 +1,32 @@
 ---
 import welcomeImage from "../../assets/img-welcome.png";
-import imgProject1 from "../../assets/img-eto-syrnik-circle.png";
-import imgProject2 from "../../assets/img-energo-street-food-circle.png";
+import imgProjectEtoSyrnik from "../../assets/img-eto-syrnik-circle.png";
+import imgProjectRetail from "../../assets/img-retail-circle.png";
+import imgProjectFranchise from "../../assets/img-energo-street-food-circle.png";
+
+const projects = [
+  {
+    title: "Eto Syrnik",
+    description: "Производство и поставка сырников в кафе, рестораны, сауны и другие заведения.",
+    href: "/eto-syrnik",
+    image: imgProjectEtoSyrnik,
+    alt: "Eto Syrnik",
+  },
+  {
+    title: "Retail Supplies",
+    description: "Поставки продукции ENERGO FOOD GROUP в ритейл.",
+    href: "/retail-supplies",
+    image: imgProjectRetail,
+    alt: "Retail Supplies",
+  },
+  {
+    title: "Franchise",
+    description: "Презентационные материалы и информация по франшизе Energo Street Food.",
+    href: "/franchise",
+    image: imgProjectFranchise,
+    alt: "Franchise",
+  },
+];
 ---
 
 <div class="container max-w-none py-6 sm:py-8 md:py-12 lg:pb-20">
@@ -16,19 +41,14 @@ import imgProject2 from "../../assets/img-energo-street-food-circle.png";
 </div>
 
 <section class="container py-8 sm:py-10 md:py-12">
-  <div class="mx-auto grid max-w-4xl grid-cols-1 gap-5 sm:gap-6 md:grid-cols-2">
-    <article class="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm">
-      <img src={imgProject1.src} width={imgProject1.width} height={imgProject1.height} alt="Energo Food" class="aspect-square w-full rounded-xl object-cover" loading="lazy" />
-      <h3 class="mt-3 text-xl font-extrabold text-slate-900">ENERGO FOOD</h3>
-      <p class="mt-1 min-h-12 text-sm leading-6 text-slate-600">Производство продуктов питания для ритейла в Королевстве Таиланд</p>
-      <a href="#" class="mt-3 inline-flex rounded-full bg-black px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-slate-800"> Больше о проекте </a>
-    </article>
-
-    <article class="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm">
-      <img src={imgProject2.src} width={imgProject2.width} height={imgProject2.height} alt="Energo Progress" class="aspect-square w-full rounded-xl object-cover" loading="lazy" />
-      <h3 class="mt-3 text-xl font-extrabold text-slate-900">Energo Progress</h3>
-      <p class="mt-1 min-h-12 text-sm leading-6 text-slate-600">Дистрибьюция и реклама. <br> @energo_progress_thai</p>
-      <a href="#" class="mt-3 inline-flex rounded-full bg-black px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-slate-800"> Больше о проекте </a>
-    </article>
+  <div class="mx-auto grid max-w-6xl grid-cols-1 gap-5 sm:gap-6 md:grid-cols-2">
+    {projects.map((project) => (
+      <article class="rounded-2xl bg-white p-4">
+        <img src={project.image.src} width={project.image.width} height={project.image.height} alt={project.alt} class="aspect-square w-full rounded-xl object-cover" loading="lazy" />
+        <h3 class="mt-3 text-3xl md:text-4xl font-bold text-slate-900">{project.title}</h3>
+        <p class="mt-1 min-h-12 text-sm leading-6 text-slate-600 text-balance">{project.description}</p>
+        <a href={project.href} class="mt-3 inline-flex rounded-full bg-black px-4 min-h-11 items-center justify-center py-2 text-sm font-semibold text-white transition-colors hover:bg-slate-800">Больше о проекте</a>
+      </article>
+    ))}
   </div>
 </section>
