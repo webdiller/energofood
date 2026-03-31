@@ -23,7 +23,7 @@ const allNav = [
   id="floating-header"
   class="fixed left-1/2 top-3 z-50 w-[min(1200px,calc(100%-1rem))] -translate-x-1/2 transition-opacity duration-300 ease-out"
 >
-  <div class="rounded-2xl relative border border-slate-200/90 bg-white/90 px-3 py-2 shadow-lg backdrop-blur">
+  <div class="rounded-full relative bg-white px-3 py-2">
     <div class="flex items-center gap-2 sm:gap-3">
       <a
         href="/"
@@ -49,12 +49,7 @@ const allNav = [
               <li>
                 <a
                   href={item.href}
-                  class:list={[
-                    "block rounded-lg px-2 py-1.5 text-[11px] font-semibold leading-tight transition-colors sm:px-2.5 sm:py-2 sm:text-xs md:text-sm",
-                    pathname === item.href
-                      ? "bg-slate-900 text-white hover:bg-slate-700"
-                      : "text-slate-700 hover:bg-slate-100 hover:text-slate-900",
-                  ]}
+                  class="text-foreground uppercase hover:bg-slate-100 block rounded-lg px-2 py-1.5 text-[11px] font-semibold leading-tight transition-colors sm:px-2.5 sm:py-2 md:text-base"
                 >
                   {item.label}
                 </a>
@@ -66,38 +61,3 @@ const allNav = [
     </div>
   </div>
 </header>
-
-<script>
-  const header = document.getElementById("floating-header");
-  let lastScrollY = window.scrollY;
-
-  const showHeader = () => {
-    if (!header) return;
-    header.classList.remove("opacity-0", "pointer-events-none");
-    header.classList.add("opacity-100");
-  };
-
-  const hideHeader = () => {
-    if (!header) return;
-    header.classList.remove("opacity-100");
-    header.classList.add("opacity-0", "pointer-events-none");
-  };
-
-  window.addEventListener(
-    "scroll",
-    () => {
-      const currentY = window.scrollY;
-
-      if (currentY <= 200) {
-        showHeader();
-      } else if (currentY > lastScrollY + 2) {
-        hideHeader();
-      } else if (currentY < lastScrollY - 2) {
-        showHeader();
-      }
-
-      lastScrollY = currentY;
-    },
-    { passive: true },
-  );
-</script>
