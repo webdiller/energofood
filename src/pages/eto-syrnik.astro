@@ -1,7 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
 
-import imgSyrnik from "../assets/img-eto-syrnik.jpg";
+import imgSyrnik from "../assets/img-eto-syrnik-circle.jpg";
 import parashutVideo from "../assets/parashut.MOV";
 import imgSyrnik1 from "../assets/products/1.jpeg";
 import imgSyrnik5 from "../assets/products/5.jpg";
@@ -34,7 +34,7 @@ const gallery = [imgSyrnik1, imgSyrnik5].map((n) => ({
   <section class="py-12 sm:py-14">
     <div class="mx-auto max-w-6xl px-3 lg:px-4">
       <div class="flex flex-col gap-3 items-center justify-center">
-        <img src={imgSyrnik.src} alt="Логотип Eto Syrnik" width={imgSyrnik.width} height={imgSyrnik.height} class="h-auto w-full max-w-2xl rounded-3xl border border-slate-200 bg-slate-900/5 p-2" />
+        <img src={imgSyrnik.src} alt="Логотип Eto Syrnik" width={imgSyrnik.width} height={imgSyrnik.height} class="h-auto w-full max-w-2xl" />
       </div>
 
       <p class="text-lg md:text-3xl font-light text-center my-10">Производство и поставка сырников в кафе, рестораны, сауны и другие заведения.</p>
