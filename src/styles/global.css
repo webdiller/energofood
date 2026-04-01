@@ -9,6 +9,9 @@
 	--foreground-accent: oklch(0% 0 0);
 }
 
+html {
+	scroll-behavior: smooth;
+}
 
 @theme inline {
 	--font-sans:
