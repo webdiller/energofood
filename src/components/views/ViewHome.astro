@@ -77,24 +77,26 @@ const projects = [
   </section>
 
   <section class="container py-8 sm:py-10 md:py-12">
-    <div id="director-gallery" class="mx-auto flex max-w-3xl flex-col items-center gap-5 rounded-3xl bg-white p-5 text-center sm:gap-6 sm:p-7">
-      <a
-        href={directorImage.src}
-        data-pswp-width={directorImage.width}
-        data-pswp-height={directorImage.height}
-        class="block w-full max-w-2xl overflow-hidden rounded-2xl"
-        aria-label="Открыть фото директора"
-      >
-        <img
-          src={directorImage.src}
-          width={directorImage.width}
-          height={directorImage.height}
-          alt="Прозоров Артем Владимирович"
-          class="aspect-4/3 w-full rounded-2xl object-cover"
-          loading="lazy"
-          decoding="async"
-        />
-      </a>
+    <div class="mx-auto flex max-w-3xl flex-col items-center gap-5 rounded-3xl bg-white p-5 text-center sm:gap-6 sm:p-7">
+      <div id="director-gallery" class="w-full max-w-2xl">
+        <a
+          href={directorImage.src}
+          data-pswp-width={directorImage.width}
+          data-pswp-height={directorImage.height}
+          class="block overflow-hidden rounded-2xl"
+          aria-label="Открыть фото директора"
+        >
+          <img
+            src={directorImage.src}
+            width={directorImage.width}
+            height={directorImage.height}
+            alt="Прозоров Артем Владимирович"
+            class="aspect-4/3 w-full rounded-2xl object-cover"
+            loading="lazy"
+            decoding="async"
+          />
+        </a>
+      </div>
 
       <div class="max-w-2xl">
         <p class="text-xs font-semibold uppercase tracking-wide text-slate-500">Руководство</p>
@@ -118,7 +120,7 @@ const projects = [
                 d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384"
               ></path></svg
             >
-            <a href="tel:+66654869537" class="text-sm underline-offset-2 transition-colors hover:underline"> +66654869537 </a>
+            <a href="tel:+66832202051" class="text-sm underline-offset-2 transition-colors hover:underline"> +66832202051 </a>
           </div>
           <div class="mt-1 flex flex-wrap items-center justify-center gap-2">
             <svg
@@ -133,7 +135,7 @@ const projects = [
               stroke-linejoin="round"
               class="lucide lucide-mail-icon lucide-mail"><path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7"></path><rect x="2" y="4" width="20" height="16" rx="2"></rect></svg
             >
-            <a href="mail:Energofoodgroup@gmail.com" class="text-sm underline-offset-2 transition-colors hover:underline"> Energofoodgroup@gmail.com </a>
+            <a href="mailto:Energofoodgroup@gmail.com" class="text-sm underline-offset-2 transition-colors hover:underline"> Energofoodgroup@gmail.com </a>
           </div>
         </div>
       </div>
